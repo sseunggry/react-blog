@@ -10,7 +10,7 @@ const Header = () => {
                 </h1>
                 <div className="menu">
                     <nav>
-                        <Link to="">글쓰기</Link>
+                        <Link to="/edit">글쓰기</Link>
                         <Link to="">수정하기</Link>
                         <Link to="">마이페이지</Link>
                     </nav>

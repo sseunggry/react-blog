@@ -1,42 +1,39 @@
 import { Post } from 'modules/posts';
 import React from 'react';
-
-interface postsType {
-    id?: string;
-    name?: string;
-    title?: string;
-    desc?: string;
-}
+import {Link} from "react-router-dom";
+import PostItem from "./PostItem";
 
 type PostListProps = {
     posts: Post[];
-    onAddPost: (post: postsType) => void;
     onDeletePost: (id: number) => void;
 };
 
-type PostItemProps = {
-    post: Post;
-    onAddPost: (post: postsType) => void;
-    onDeletePost: (id: number) => void;
-};
+// type PostItemProps = {
+//     post: Post;
+//     onDeletePost: (id: number) => void;
+// };
 
-const PostItem = ({ post, onDeletePost }: PostItemProps) => {
-    return (
-        <li>
-            <p className="title">{post.title}</p>
-            <p className="desc">{post.desc}</p>
-        </li>
-    );
-};
+// const PostItem = ({ post, onDeletePost }: PostItemProps) => {
+//     return (
+//         <li>
+//             <Link to={`edit/${post.id}`} >
+//                 <div className="info">
+//                     <span className="user">{post.user}</span>
+//                 </div>
+//                 <p className="title">{post.title}</p>
+//                 <p className="desc">{post.desc}</p>
+//             </Link>
+//         </li>
+//     );
+// };
 
-const PostListItem = ({ posts, onAddPost, onDeletePost }: PostListProps) => {
+const PostListItem = ({ posts, onDeletePost }: PostListProps) => {
     return (
         <ul>
             {posts.map((post) => (
                 <PostItem
                     key={post.id}
-                    title={post.title}
-                    desc={post.desc}
+                    post={post}
                     onDeletePost={onDeletePost}
                 />
             ))}
@@ -44,7 +41,7 @@ const PostListItem = ({ posts, onAddPost, onDeletePost }: PostListProps) => {
     );
 };
 
-const PostList = ({ posts, onAddPost, onDeletePost }: PostListProps) => {
+const PostList = ({ posts, onDeletePost }: PostListProps) => {
     return (
         <>
             <ul className="tab">
@@ -55,7 +52,6 @@ const PostList = ({ posts, onAddPost, onDeletePost }: PostListProps) => {
             <ul>
                 <PostListItem
                     posts={posts}
-                    onAddPost={onAddPost}
                     onDeletePost={onDeletePost}
                 />
             </ul>
