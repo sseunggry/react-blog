@@ -13,21 +13,12 @@ const DetailContainer =  () => {
     const onGetPost = (id: number) => {
         dispatch(GetPost(id));
     };
-    let post;
     
-    useEffect(() => {
-        post = onGetPost(Number(params.id));
-        console.log(post, Number(params.id));
-    }, [params.id]);
-    
-    // const post = posts.filter(post => (post.id == params.id as number | ''));
-    
-    // console.log(posts, onGetPost, post);
-    // console.log(posts, posts.filter(post => { post.id === params.id as number | undefined}), params.id);
+    const post = posts.filter((post) => post.id === Number(params.id));
     
     return (
         <PostItem
-            // post={post}
+            post={post[0]}
             onGetPost={onGetPost}
         />
     );

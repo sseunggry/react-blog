@@ -11,3 +11,18 @@
         }
     }
 }
+
+//btn
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    border-radius: 1rem;
+
+    &-page{
+        width: 100%;
+        color: #fff;
+        background-color: #000;
+    }
+}

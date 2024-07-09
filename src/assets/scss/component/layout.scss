@@ -3,6 +3,10 @@ $footerHeight: 10rem;
 $contentWidth: 128rem;
 $contentPadding: 4rem;
 
+body{
+    font-size: 1.6rem;
+}
+
 .inner{
     margin: 0 auto;
     padding: 0 $contentPadding;
