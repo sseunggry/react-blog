@@ -1,0 +1,13 @@
+// tab
+.tab{
+    display: flex;
+    align-items: center;
+
+    li{
+        font-size: 1.6rem;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+$font-url: "../font";
+$font-name-ko: "NotoSansKR";
+$font-family-base: 'Noto Sans KR', sans-serif;
+$fonts-ko: (
+    "Thin" : 100,
+    "Light" : 200,
+    "DemiLight" : 300,
+    "Regular" : 400,
+    "Medium" : 500,
+    "Bold" : 700,
+    "Black" : 900
+);
+
+$line-height-base: 1.4;
+$font-size-root: 10px;
+
+
+$primary: "#000";
+
+$fws: (
+    "light": 300,
+    "normal": 400,
+    "medium": 500,
+    "bold": 700,
+    "bolder": 800,
+) !default;
