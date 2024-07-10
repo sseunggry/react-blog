@@ -2,6 +2,7 @@
 const ADD_POST = 'posts/ADD_POST' as const;
 const DELETE_POST = 'posts/DELETE_POST' as const;
 const GET_POST = 'posts/GET_POST' as const;
+const MODIFY_POST = 'posts/MODIFY_POST' as const;
 
 //action 생성함수
 let nextId = 1;
@@ -15,19 +16,27 @@ export const addPost = (user: string, title: string, desc: string) => ({
     },
 });
 
-export const DeletePost = (id: number) => ({
+export const deletePost = (id: number) => ({
     type: DELETE_POST,
     post: id,
 });
 
-export const GetPost = (id: number) => ({
+export const getPost = (id: number) => ({
     type: GET_POST,
-    id
-    // post: id
+    post: id,
+});
+
+export const modifyPost = (post: Post) => ({
+    type: MODIFY_POST,
+    post: post,
 });
 
 //action 객체 타입
-type PostsAction = ReturnType<typeof addPost> | ReturnType<typeof DeletePost> | ReturnType<typeof GetPost>;
+type PostsAction =
+    | ReturnType<typeof addPost>
+    | ReturnType<typeof deletePost>
+    | ReturnType<typeof getPost>
+    | ReturnType<typeof modifyPost>;
 
 export type Post = {
     id: number;
@@ -53,7 +62,14 @@ export default function posts(
                 desc: action.post.desc,
             });
         case GET_POST:
-            return state.filter((post) => post.id === action.id);
+            return state.filter((post) => post.id === action.post);
+        case MODIFY_POST:
+            return (
+                // state.map((post) => {
+                //     // const idx = state.indexOf(post.id === action.post.id);
+                // })
+                // state.indexOf(post.id === action.post.id);
+            );
         default:
             return state;
     }

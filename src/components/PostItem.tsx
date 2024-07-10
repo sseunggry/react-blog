@@ -1,6 +1,6 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import {Post} from "../modules/posts";
+import React, { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { Post } from '../modules/posts';
 
 type PostItemProps = {
     post?: Post;
@@ -10,15 +10,15 @@ type PostItemProps = {
 
 const PostItem = ({ post, onGetPost, onDeletePost }: PostItemProps) => {
     return (
-        <li>
-            <Link to={`edit/${post?.id}`} >
-                <div className="info">
-                    <span className="user">{post?.user}</span>
-                </div>
-                <p className="title">{post?.title}</p>
-                <p className="desc">{post?.desc}</p>
-            </Link>
-        </li>
+        <>
+            {/* <Link to={`edit/${post?.id}`} > */}
+            <div className="info">
+                <span className="user">{post?.user}</span>
+            </div>
+            <p className="title">{post?.title}</p>
+            <p className="desc">{post?.desc}</p>
+            {/* </Link> */}
+        </>
     );
 };
 

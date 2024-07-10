@@ -20,9 +20,92 @@
     height: 5rem;
     border-radius: 1rem;
 
+    &-black{
+        color: #fff;
+        background-color: #000;
+    }
+
+    &-m{
+        padding: 0 2rem;
+        min-width: 200px;
+        height: 4rem;
+    }
+
+    &-s{
+        padding: 0 1rem;
+        width: fit-content;
+        height: 3rem;
+    }
+
     &-page{
         width: 100%;
         color: #fff;
         background-color: #000;
+    }
+
+    &-text{
+        margin-right: 1rem;
+        font-size: 1.4rem;
+        color: #666;
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+
+//detail
+.detail{
+    &-info{
+        margin-bottom: 2rem;
+        padding: 2rem 0;
+        border-bottom: .1rem solid #ddd;
+
+        .user{
+            font-size: 1.4rem;
+            color: #666;
+        }
+        .title{
+            font-size: 2.4rem;
+            font-weight: 700;
+        }
+    }
+    &-con{
+        min-height: 40rem;
+        font-size: 1.6rem;
+        color: #666;
+        border-bottom: .1rem solid #ddd;
+    }
+}
+.comment-box{
+    margin-top: 4rem;
+    .input-box{
+        textarea{
+            height: 10rem;
+        }
+    }
+
+    .comment-list{
+        li{
+            padding: 2rem 0;
+            border-top: .1rem solid #ddd;
+
+            &:last-child{
+                border-bottom: .1rem solid #ddd;
+            }
+        }
+        .user-info{
+            font-size: 1.4rem;
+            .user{
+                font-weight: 700;
+            }
+            .date{
+                margin-left: 10px;
+                color: #999;
+            }
+        }
+        .comment{
+            margin-top: .4rem;
+        }
     }
 }
