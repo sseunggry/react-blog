@@ -12,6 +12,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/edit" element={<Edit />} />
             <Route path="/edit/:id" element={<Detail />} />
+            {/* <Route path="/modify" element={<Modify />} /> */}
             <Route path="/modify/:id" element={<Modify />} />
 
             <Route path="*" element={<Home />} />

@@ -1,14 +1,20 @@
 import React from 'react';
 import { Post } from 'modules/posts';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 type PostItemProps = {
-    post?: Post;
+    post: Post;
     onGetPost?: (id: number) => void;
-    onDeletePost?: (id: number) => void;
+    onDeletePost: (id: number) => void;
 };
 
 const PostDetail = ({ post, onGetPost, onDeletePost }: PostItemProps) => {
+    const navigate = useNavigate();
+    const onClickDelete = (id: number) => {
+        onDeletePost(id);
+        navigate('/');
+    };
     return (
         <>
             <div className="detail-info">
@@ -19,9 +25,13 @@ const PostDetail = ({ post, onGetPost, onDeletePost }: PostItemProps) => {
                     <Link to={`/modify/${post?.id}`} className="btn-text">
                         수정
                     </Link>
-                    <Link to="" className="btn-text">
+                    <button
+                        type="button"
+                        className="btn-text"
+                        onClick={() => onClickDelete(post.id)}
+                    >
                         삭제
-                    </Link>
+                    </button>
                 </div>
             </div>
             <div className="detail-con">

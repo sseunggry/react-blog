@@ -61,15 +61,22 @@ export default function posts(
                 title: action.post.title,
                 desc: action.post.desc,
             });
+        case DELETE_POST:
+            return state.filter((post) => post.id !== action.post);
         case GET_POST:
             return state.filter((post) => post.id === action.post);
         case MODIFY_POST:
-            return (
-                // state.map((post) => {
-                //     // const idx = state.indexOf(post.id === action.post.id);
-                // })
-                // state.indexOf(post.id === action.post.id);
-            );
+            return state.map((item) => {
+                if (item.id !== action.post.id) {
+                    return item;
+                }
+
+                return {
+                    ...item,
+                    ...action.post,
+                };
+            });
+
         default:
             return state;
     }

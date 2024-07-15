@@ -11,7 +11,7 @@ const Header = () => {
                 <div className="menu">
                     <nav>
                         <Link to="/edit">글쓰기</Link>
-                        <Link to="">수정하기</Link>
+                        {/* <Link to="/modify">수정하기</Link> */}
                         <Link to="">마이페이지</Link>
                     </nav>
                     <div className="btn-util">

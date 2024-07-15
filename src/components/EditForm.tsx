@@ -5,9 +5,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 type EditProps = {
     post?: Post;
     onAddPost: (user: string, title: string, desc: string) => void;
+    onModifyPost?: (post: Post) => void;
 };
 
-const EditForm = ({ post, onAddPost }: EditProps) => {
+const EditForm = ({ post, onAddPost, onModifyPost }: EditProps) => {
     const [user, setUser] = useState<string>('');
     const [title, setTitle] = useState<string>('');
     const [desc, setDesc] = useState<string>('');
@@ -37,8 +38,13 @@ const EditForm = ({ post, onAddPost }: EditProps) => {
     };
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (params.id) {
-            console.log(12);
+        if (params.id && post && onModifyPost) {
+            onModifyPost({
+                id: post.id,
+                user: user,
+                title: title,
+                desc: desc,
+            });
         } else {
             onAddPost(user, title, desc);
         }

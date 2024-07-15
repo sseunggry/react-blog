@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../modules';
-import { getPost } from '../modules/posts';
+import { deletePost, getPost } from '../modules/posts';
 import PostDetail from 'components/PostDetail';
 
 const DetailContainer = () => {
@@ -15,6 +15,10 @@ const DetailContainer = () => {
         dispatch(getPost(id));
     };
 
+    const onDeletePost = (id: number) => {
+        dispatch(deletePost(id));
+    };
+
     const post = posts.filter((post) => post.id === Number(params.id));
     useEffect(() => {
         if (!post.length) {
@@ -22,7 +26,13 @@ const DetailContainer = () => {
         }
     }, []);
 
-    return <PostDetail post={post[0]} onGetPost={onGetPost} />;
+    return (
+        <PostDetail
+            post={post[0]}
+            onGetPost={onGetPost}
+            onDeletePost={onDeletePost}
+        />
+    );
 };
 
 export default DetailContainer;
